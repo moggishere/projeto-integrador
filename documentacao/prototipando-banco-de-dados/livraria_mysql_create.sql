@@ -22,14 +22,16 @@ CREATE TABLE `tb_livro` (
 	`preco` DECIMAL NOT NULL,
 	`categoria` varchar(255) NOT NULL,
 	`foto` varchar(255) NOT NULL,
+	`fisico` BOOLEAN NOT NULL,
+	`promo` BOOLEAN NOT NULL,
 	PRIMARY KEY (`id_livro`)
 );
 
 CREATE TABLE `tb_categoria` (
 	`id_categoria` bigint NOT NULL AUTO_INCREMENT,
 	`categoria` varchar(255) NOT NULL AUTO_INCREMENT,
-	`promo` BOOLEAN NOT NULL,
-	`fisico` BOOLEAN NOT NULL,
+	`descricaoCategora` varchar(10000) NOT NULL,
+	`impulso` BOOLEAN NOT NULL,
 	PRIMARY KEY (`id_categoria`)
 );
 

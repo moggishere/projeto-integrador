@@ -20,9 +20,13 @@ public class Categoria{
 	@Size(min = 5, max = 30, message = "O atributo titulo deve ter no minimo 5 e no maximo 30 caracters")
 	private String categoria;
 
-	private boolean promo;
+	// private boolean promo; // TROCAR
 	
-	private boolean fisico;
+	// private boolean fisico; // TROCAR
+
+	private String descricaoCategoria;
+
+	private boolean impulso; // mostra
 
 	// Getters e Setters
 	public Long getId() {
@@ -41,21 +45,21 @@ public class Categoria{
 		this.categoria = categoria;
 	}
 
-	public boolean isPromo() {
-		return promo;
-	}
+	// public boolean isPromo() {
+	// 	return promo;
+	// }
 
-	public void setPromo(boolean promo) {
-		this.promo = promo;
-	}
+	// public void setPromo(boolean promo) {
+	// 	this.promo = promo;
+	// }
 
-	public boolean isFisico() {
-		return fisico;
-	}
+	// public boolean isFisico() {
+	// 	return fisico;
+	// }
 
-	public void setFisico(boolean fisico) {
-		this.fisico = fisico;
-	}
+	// public void setFisico(boolean fisico) {
+	// 	this.fisico = fisico;
+	// }
 	
 }
 
