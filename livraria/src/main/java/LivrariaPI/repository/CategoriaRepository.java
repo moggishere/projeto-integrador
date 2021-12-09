@@ -10,5 +10,5 @@ import LivrariaPI.model.Categoria;
 
 @Repository
 public interface CategoriaRepository extends JpaRepository<Categoria, Long>{
-    public List <Categoria> findAllByDescricaoContainingIgnoreCase(String categoria);
+    public List <Categoria> findAllByDescricaoCategoriaContainingIgnoreCase(String categoria);
 }
