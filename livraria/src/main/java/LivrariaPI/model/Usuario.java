@@ -10,7 +10,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
-import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -27,7 +27,7 @@ public class Usuario {
 
     @NotBlank
     @Email
-    private String usr;
+    private String usuario;
 
     @NotBlank
     private String senha;
@@ -44,11 +44,10 @@ public class Usuario {
     private String genero;
 
     @NotBlank
-    private Integer privilegio;
+    private String privilegio;
 
     @NotBlank
-    @UpdateTimestamp // grava data e horario de todo update || @CreateTimestamp faz apenas na sua
-                     // criacao
+    @CreationTimestamp
     private LocalDate cadastro;
 
     private String foto;
@@ -61,12 +60,12 @@ public class Usuario {
         this.id = id;
     }
 
-    public String getUsr() {
-        return this.usr;
+    public String getUsuario() {
+        return this.usuario;
     }
 
-    public void setUsr(String usr) {
-        this.usr = usr;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     public String getSenha() {
@@ -101,11 +100,11 @@ public class Usuario {
         this.genero = genero;
     }
 
-    public Integer getPrivilegio() {
+    public String getPrivilegio() {
         return this.privilegio;
     }
 
-    public void setPrivilegio(Integer privilegio) {
+    public void setPrivilegio(String privilegio) {
         this.privilegio = privilegio;
     }
 

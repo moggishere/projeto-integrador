@@ -40,9 +40,9 @@ public class UsuarioController {
 				.orElse(ResponseEntity.notFound().build());
 	}
 
-    @GetMapping("/usr/{usr}")
-    public ResponseEntity<List<Usuario>> getByUsr(@PathVariable String usr) {
-        return ResponseEntity.ok(usuarioRepository.findAllByUsrContainingIgnoreCase(usr));
+    @GetMapping("/usuario/{usuario}")
+    public ResponseEntity<List<Usuario>> getByUsr(@PathVariable String usuario) {
+        return ResponseEntity.ok(usuarioRepository.findAllByUsuarioContainingIgnoreCase(usuario));
     }
 
     @PostMapping
