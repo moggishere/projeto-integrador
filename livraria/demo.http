@@ -1,0 +1,20 @@
+GET https://localhost:8080/categorias
+
+###
+
+POST https://localhost:8080/categorias
+Content-Type: application/json
+
+{
+    "categoria": "SUSPENSE",
+    "descricao_categoria": "De perder o fôlego!",
+    "impulso": true;
+}
+
+###
+
+PUT  https://localhost:8080/categorias
+
+###
+
+DELETE  https://localhost:8080/categorias
