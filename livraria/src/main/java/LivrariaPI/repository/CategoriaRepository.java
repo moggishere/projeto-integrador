@@ -7,8 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import LivrariaPI.model.Categoria;
 
-
 @Repository
-public interface CategoriaRepository extends JpaRepository<Categoria, Long>{
-    public List <Categoria> findAllByDescricaoCategoriaContainingIgnoreCase(String categoria);
+public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
+    public List<Categoria> findAllByDescricaoCategoriaContainingIgnoreCase(String categoria);
 }

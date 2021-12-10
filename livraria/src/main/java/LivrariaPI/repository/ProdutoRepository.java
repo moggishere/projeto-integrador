@@ -10,9 +10,7 @@ import LivrariaPI.model.Produto;
 @Repository
 public interface ProdutoRepository extends JpaRepository<Produto, Long>{
 
-	    public List <Produto> findAllByProdutoContainingIgnoreCase(String produto);
-
-	    public List <Produto> findAllByTituloContainingIgnoreCase(String titulo);
+	    public List<Produto> findAllByTituloContainingIgnoreCase(String titulo);
 	    
-	    public List <Produto> findAllByAutorContainingIgnoreCase (String autor);
+	    public List<Produto> findAllByAutorContainingIgnoreCase(String autor);
 }
