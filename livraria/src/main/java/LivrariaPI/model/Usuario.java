@@ -27,7 +27,7 @@ public class Usuario {
 
     @NotBlank
     @Email
-    private String usuario;
+    private String usr;
 
     @NotBlank
     private String senha;
@@ -47,7 +47,8 @@ public class Usuario {
     private Integer privilegio;
 
     @NotBlank
-    @UpdateTimestamp // grava data e horario de todo update || @CreateTimestamp faz apenas na sua criacao
+    @UpdateTimestamp // grava data e horario de todo update || @CreateTimestamp faz apenas na sua
+                     // criacao
     private LocalDate cadastro;
 
     private String foto;
@@ -60,12 +61,12 @@ public class Usuario {
         this.id = id;
     }
 
-    public String getUsuario() {
-        return this.usuario;
+    public String getUsr() {
+        return this.usr;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setUsr(String usr) {
+        this.usr = usr;
     }
 
     public String getSenha() {
@@ -115,7 +116,6 @@ public class Usuario {
     public void setCadastro(LocalDate cadastro) {
         this.cadastro = cadastro;
     }
-
 
     public String getFoto() {
         return this.foto;
