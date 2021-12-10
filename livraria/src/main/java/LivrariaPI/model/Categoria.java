@@ -1,12 +1,18 @@
 package LivrariaPI.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity // create table
 @Table(name = "tb_categoria") // tabela categoria
@@ -15,6 +21,18 @@ public class Categoria{
 	@Id // primary key (id)
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // auto-increment
 	private Long id;
+
+	@OneToMany (mappedBy = "categoria_id", cascade = CascadeType.ALL)     
+	@JsonIgnoreProperties("categoria_id")     
+	private List<Produto> produto;
+	
+	public List<Produto> getProduto() {
+		return produto;
+	}
+
+	public void setProduto(List<Produto> produto) {
+		this.produto = produto;
+	}
 
 	@NotBlank(message = "Por favor selecione uma categoria")
 	@Size(min = 5, max = 30, message = "O atributo titulo deve ter no minimo 5 e no maximo 30 caractéres")

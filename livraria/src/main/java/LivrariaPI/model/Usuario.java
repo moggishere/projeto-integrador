@@ -1,11 +1,14 @@
 package LivrariaPI.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -13,6 +16,8 @@ import javax.validation.constraints.NotBlank;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "tb_usuario")
@@ -25,6 +30,7 @@ public class Usuario {
     // @NotBlank
     // private String login;
 
+    
     @NotBlank
     @Email
     private String usuario;
@@ -51,6 +57,10 @@ public class Usuario {
     private LocalDate cadastro;
 
     private String foto;
+    
+    @OneToMany (mappedBy = "autor_id", cascade = CascadeType.ALL)     
+	@JsonIgnoreProperties("autor_id")     
+	private List<Produto> produto;
 
     public Long getId() {
         return this.id;
