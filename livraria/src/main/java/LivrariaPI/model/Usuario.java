@@ -9,10 +9,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.br.CPF;
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "tb_usuario")
@@ -39,8 +41,8 @@ public class Usuario {
     @CPF
     private String cpf;
 
-    @NotBlank
-    @DateTimeFormat
+    @NotNull
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate nascimento;
 
     @NotBlank
@@ -49,7 +51,6 @@ public class Usuario {
     @NotBlank
     private String privilegio;
 
-    @NotBlank
     @CreationTimestamp
     private LocalDate cadastro;
 

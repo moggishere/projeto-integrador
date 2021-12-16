@@ -10,4 +10,5 @@ import LivrariaPI.model.Usuario;
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     public List<Usuario> findAllByUsuarioContainingIgnoreCase(String usuario);
     public Optional<Usuario> findByUsuario(String usuario);
+    public Usuario findByNome(String nome);
 }
