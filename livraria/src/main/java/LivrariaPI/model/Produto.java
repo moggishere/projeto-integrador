@@ -6,11 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "tb_produto")
@@ -33,24 +30,8 @@ public class Produto {
 	
 	private String diretorio;
 	
-	public Categoria getCategoria_id() {
-		return categoria_id;
-	}
-
-	public void setCategoria_id(Categoria categoria_id) {
-		this.categoria_id = categoria_id;
-	}
-
 	@NotBlank
 	private BigDecimal preco; 
-	
-	@ManyToOne
-	@JsonIgnoreProperties ("produto")
-	private Categoria categoria_id ;
-	
-	@ManyToOne
-	@JsonIgnoreProperties ("produto")
-	private Usuario autor_id ;
 	
 	@NotBlank
 	private String categoria;

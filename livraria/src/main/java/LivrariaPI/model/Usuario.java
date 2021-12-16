@@ -1,23 +1,20 @@
 package LivrariaPI.model;
 
 import java.time.LocalDate;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.br.CPF;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "tb_usuario")
@@ -30,7 +27,6 @@ public class Usuario {
     // @NotBlank
     // private String login;
 
-    
     @NotBlank
     @Email
     private String usuario;
@@ -39,11 +35,14 @@ public class Usuario {
     private String senha;
 
     @NotBlank
+	private String nome;
+
+    @NotBlank
     @CPF
     private String cpf;
 
-    @NotBlank
-    @DateTimeFormat
+    @NotNull
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate nascimento;
 
     @NotBlank
@@ -52,15 +51,10 @@ public class Usuario {
     @NotBlank
     private String privilegio;
 
-    @NotBlank
     @CreationTimestamp
     private LocalDate cadastro;
 
     private String foto;
-    
-    @OneToMany (mappedBy = "autor_id", cascade = CascadeType.ALL)     
-	@JsonIgnoreProperties("autor_id")     
-	private List<Produto> produto;
 
     public Long getId() {
         return this.id;
@@ -133,5 +127,15 @@ public class Usuario {
     public void setFoto(String foto) {
         this.foto = foto;
     }
+
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
 
 }
