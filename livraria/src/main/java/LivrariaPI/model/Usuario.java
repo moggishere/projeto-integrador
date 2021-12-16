@@ -33,6 +33,9 @@ public class Usuario {
     private String senha;
 
     @NotBlank
+	private String nome;
+
+    @NotBlank
     @CPF
     private String cpf;
 
@@ -123,5 +126,15 @@ public class Usuario {
     public void setFoto(String foto) {
         this.foto = foto;
     }
+
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
 
 }

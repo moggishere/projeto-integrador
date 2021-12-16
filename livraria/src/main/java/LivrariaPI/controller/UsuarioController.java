@@ -21,7 +21,7 @@ import LivrariaPI.model.Usuario;
 import LivrariaPI.repository.UsuarioRepository;
 
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("/usuarios")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UsuarioController {
 
@@ -40,7 +40,7 @@ public class UsuarioController {
 				.orElse(ResponseEntity.notFound().build());
 	}
 
-    @GetMapping("/usuario/{usuario}")
+    @GetMapping("/usuarios/{usuario}")
     public ResponseEntity<List<Usuario>> getByUsr(@PathVariable String usuario) {
         return ResponseEntity.ok(usuarioRepository.findAllByUsuarioContainingIgnoreCase(usuario));
     }
