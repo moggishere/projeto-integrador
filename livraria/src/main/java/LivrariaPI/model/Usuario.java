@@ -16,6 +16,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.br.CPF;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 @Entity
 @Table(name = "tb_usuario")
 public class Usuario {
@@ -27,7 +29,8 @@ public class Usuario {
     // @NotBlank
     // private String login;
 
-    @NotBlank
+    @Schema(example = "SeuEmail@email.com")
+    @NotNull
     @Email
     private String usuario;
 
