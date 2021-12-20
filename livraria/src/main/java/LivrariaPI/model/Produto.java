@@ -1,13 +1,19 @@
 package LivrariaPI.model;
 
 import java.math.BigDecimal;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "tb_produto")
@@ -34,7 +40,7 @@ public class Produto {
 	private BigDecimal preco; 
 	
 	@NotBlank
-	private String categoria;
+	private String categoriaProduto; // mudado o termo
 	
 	@NotBlank
 	private String foto;
@@ -44,6 +50,14 @@ public class Produto {
 	
 	@NotBlank
 	private Boolean promocao;
+
+	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("produto")
+    private List<Categoria> categoria;
+
+	@ManyToOne
+	@JsonIgnoreProperties("produto")
+	private Usuario usuario;
 
 	public Long getId() {
 		return id;
@@ -101,13 +115,13 @@ public class Produto {
 		this.preco = preco;
 	}
 
-	public String getCategoria() {
-		return categoria;
-	}
+	// public String getCategoria() {
+	// 	return categoria;
+	// }
 
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
-	}
+	// public void setCategoria(String categoria) {
+	// 	this.categoria = categoria;
+	// }
 
 	public String getFoto() {
 		return foto;
@@ -133,4 +147,38 @@ public class Produto {
 		this.promocao = promocao;
 	}
 	  
+
+	public String getCategoriaProduto() {
+		return this.categoriaProduto;
+	}
+
+	public void setCategoriaProduto(String categoriaProduto) {
+		this.categoriaProduto = categoriaProduto;
+	}
+
+	public Boolean isFisico() {
+		return this.fisico;
+	}
+
+	public Boolean isPromocao() {
+		return this.promocao;
+	}
+
+	public List<Categoria> getCategoria() {
+		return this.categoria;
+	}
+
+	public void setCategoria(List<Categoria> categoria) {
+		this.categoria = categoria;
+	}
+
+
+	public Usuario getUsuario() {
+		return this.usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 }
