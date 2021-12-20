@@ -13,7 +13,7 @@
 	<name>livraria</name>
 	<description>Projeto Integrador E-Commerce Livraria</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>16</java.version>
 	</properties>
 	<dependencies>
 		<dependency>

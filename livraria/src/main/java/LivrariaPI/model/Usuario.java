@@ -30,7 +30,7 @@ public class Usuario {
     // private String login;
 
     @Schema(example = "SeuEmail@email.com")
-    @NotNull
+    @NotBlank
     @Email
     private String usuario;
 
